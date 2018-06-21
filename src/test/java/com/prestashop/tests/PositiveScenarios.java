@@ -13,7 +13,7 @@ import com.github.javafaker.Name;
 import com.github.javafaker.PhoneNumber;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import okhttp3.Address;
+
 
 public class PositiveScenarios {
 
@@ -65,7 +65,9 @@ public class PositiveScenarios {
 		driver.findElement(By.id("email")).sendKeys(email);
 		driver.findElement(By.id("passwd")).sendKeys(password);
 		driver.findElement(By.id("SubmitLogin")).click();
-		Assert.assertTrue(true, name+lastName);
+		
+		String str5 = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a/span")).getText();
+		Assert.assertEquals(str5, (name + " "+ lastName));
 		
 	}
 	
